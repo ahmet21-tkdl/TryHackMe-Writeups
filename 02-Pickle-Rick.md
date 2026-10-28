@@ -19,7 +19,7 @@ To bypass this, I used `tac` (which prints files in reverse):
 ```bash
 tac Sup3rS3cretPickl3Ingred.txt
 ```
-It worked and showed the first ingredient: THM{[REDACTED]}. Used the same trick to find the second ingredient: THM{[REDACTED]}.
+It worked and showed the first ingredient: `THM{[REDACTED]}`. Used the same trick to find the second ingredient: `THM{[REDACTED]}`.
 
 ## Privilege Escalation
 Checked my sudo rights via the web shell:
@@ -30,6 +30,7 @@ Turned out `www-data` had `(ALL) NOPASSWD: ALL` access! No complex exploit neede
 ```bash
 sudo tac /root/3rd.txt
 ```
+Grabbed the final flag: `THM{[REDACTED]}`.
 
 ## Lessons Learned & Mitigation 
 - **Input Sanitization:** The command injection vulnerability on `portal.php` happened because there was no input sanitization. Blacklisting commands like `cat` is easily bypassed. User input must be strictly validated.
